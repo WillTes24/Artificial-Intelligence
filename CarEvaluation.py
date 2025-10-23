@@ -59,7 +59,14 @@ if __name__ == "__main__":
     data_path = 'car.data'
     cars, labels = load_car_data(data_path)
 
-    print("Evaluating Classifier 1:")
-    evaluate_classifier(cars[:10], labels[:10], rule_based_classifier_1)
+    print("Algorithm 1 results:")
+    accuracy1 = evaluate_classifier(cars, labels, rule_based_classifier_1)
+
+    print("Algorithm 2 results:")
+    accuracy2 = evaluate_classifier(cars, labels, rule_based_classifier_2)
+
+    print(f"Final accuracy for Algorithm 1: {accuracy1:.2f}%")
+    print(f"Final accuracy for Algorithm 2: {accuracy2:.2f}%")
+
 
 
