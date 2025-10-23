@@ -42,10 +42,24 @@ def rule_based_classifier_2(car):
         return 'good'
     return 'acc'
 
+def evaluate_classifier(cars, actual_labels, classifier):
+    correct = 0
+    total = len(cars)
+    for i, car in enumerate(cars):
+        prediction = classifier(car)
+        actual = actual_labels[i]
+        print(f"Car: {car}, Predicted: {prediction}, Actual: {actual}")
+        if prediction == actual:
+            correct += 1
+    accuracy = correct / total * 100
+    print(f"Accuracy: {accuracy:.2f}%\n")
+    return accuracy
+
 if __name__ == "__main__":
     data_path = 'car.data'
     cars, labels = load_car_data(data_path)
 
-    print("Classifier 1 prediction:", rule_based_classifier_1(cars[0]))
-    print("Classifier 2 prediction:", rule_based_classifier_2(cars[0]))
+    print("Evaluating Classifier 1:")
+    evaluate_classifier(cars[:10], labels[:10], rule_based_classifier_1)
+
 
