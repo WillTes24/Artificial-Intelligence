@@ -1,3 +1,5 @@
+# This program classifies cars using two sets of hand-written rules, then checks how well the rules work.
+
 def load_car_data(filepath):
     # Reads car data from a file and return the features and actual labels
     cars = []
@@ -20,29 +22,34 @@ def load_car_data(filepath):
 
 def rule_based_classifier_1(car):
     # My first set of rules to decide car classes
+    # Mostly looking at buying price and safety here
     if car['buying'] in ['vhigh', 'high'] and car['safety'] == 'low':
-        return 'unacc'
+        return 'unacc'  # High price but low safety means unacceptable
     if car['buying'] in ['med', 'low'] and car['safety'] in ['med', 'high']:
-        return 'acc'
+        return 'acc'    # Mid or low price and good safety means acceptable
     if car['persons'] == 'more' and car['safety'] == 'high':
-        return 'good'
+        return 'good'   # Can hold more people and is safe, so good
     if car['maint'] in ['low', 'med'] and car['lug_boot'] == 'big':
-        return 'vgood'
-    return 'acc'
+        return 'vgood'  # Low or medium maintenance with big boot is very good
+    return 'acc'        # If none of the above, just say acceptable
+
 
 def rule_based_classifier_2(car):
     # A different rule approach
+    # Focus here is more on maintenance and doors
     if car['maint'] in ['vhigh', 'high'] and car['safety'] == 'low':
-        return 'unacc'
+        return 'unacc'  # High maintenance and low safety is unacceptable
     if car['doors'] in ['2', '3'] and car['persons'] == '2':
-        return 'unacc'
+        return 'unacc'  # Small door count with only 2 people isn't good
     if car['maint'] in ['low', 'med'] and car['lug_boot'] == 'big' and car['safety'] == 'high':
-        return 'vgood'
+        return 'vgood'  # Low maintenance, big boot, and high safety is very good
     if car['buying'] in ['med', 'low'] and car['persons'] in ['4', 'more']:
-        return 'good'
-    return 'acc'
+        return 'good'   # Medium or low price and can hold 4+ are good cars
+    return 'acc'        # Default to acceptable
+
 
 def evaluate_classifier(cars, actual_labels, classifier):
+    # Compares what the rules predicted to the real answers and check how many are right
     correct = 0
     total = len(cars)
     for i, car in enumerate(cars):
@@ -55,7 +62,10 @@ def evaluate_classifier(cars, actual_labels, classifier):
     print(f"Accuracy: {accuracy:.2f}%\n")
     return accuracy
 
+
 if __name__ == "__main__":
+    # Load the data, run both rule sets on it,
+    # This prints the results and accuracy for each one
     data_path = 'car.data'
     cars, labels = load_car_data(data_path)
 
@@ -67,6 +77,3 @@ if __name__ == "__main__":
 
     print(f"Final accuracy for Algorithm 1: {accuracy1:.2f}%")
     print(f"Final accuracy for Algorithm 2: {accuracy2:.2f}%")
-
-
-
