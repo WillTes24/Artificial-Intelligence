@@ -17,9 +17,24 @@ def load_car_data(filepath):
             labels.append(parts[6])
     return cars, labels
 
+
+def rule_based_classifier_1(car):
+    # My first set of rules to decide car classes
+    if car['buying'] in ['vhigh', 'high'] and car['safety'] == 'low':
+        return 'unacc'
+    if car['buying'] in ['med', 'low'] and car['safety'] in ['med', 'high']:
+        return 'acc'
+    if car['persons'] == 'more' and car['safety'] == 'high':
+        return 'good'
+    if car['maint'] in ['low', 'med'] and car['lug_boot'] == 'big':
+        return 'vgood'
+    return 'acc'
+
 if __name__ == "__main__":
     data_path = 'car.data'
     cars, labels = load_car_data(data_path)
-    print("Loaded car data:")
+
+    print("Testing Rule-Based Classifier 1:")
     for i in range(5):
-        print(cars[i], "->", labels[i])
+        print(cars[i], "-> Predicted:", rule_based_classifier_1(cars[i]))
+
