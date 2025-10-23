@@ -30,11 +30,22 @@ def rule_based_classifier_1(car):
         return 'vgood'
     return 'acc'
 
+def rule_based_classifier_2(car):
+    # A different rule approach
+    if car['maint'] in ['vhigh', 'high'] and car['safety'] == 'low':
+        return 'unacc'
+    if car['doors'] in ['2', '3'] and car['persons'] == '2':
+        return 'unacc'
+    if car['maint'] in ['low', 'med'] and car['lug_boot'] == 'big' and car['safety'] == 'high':
+        return 'vgood'
+    if car['buying'] in ['med', 'low'] and car['persons'] in ['4', 'more']:
+        return 'good'
+    return 'acc'
+
 if __name__ == "__main__":
     data_path = 'car.data'
     cars, labels = load_car_data(data_path)
 
-    print("Testing Rule-Based Classifier 1:")
-    for i in range(5):
-        print(cars[i], "-> Predicted:", rule_based_classifier_1(cars[i]))
+    print("Classifier 1 prediction:", rule_based_classifier_1(cars[0]))
+    print("Classifier 2 prediction:", rule_based_classifier_2(cars[0]))
 
