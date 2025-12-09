@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "W:\\AI\\AssesmentTwo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4793B551-6527-4281-A8E2-C0F2E0D52266}|AssesmentTwo.pyproj|W:\\AI\\AssesmentTwo\\AssesmentTwo.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{4793B551-6527-4281-A8E2-C0F2E0D52266}|AssesmentTwo.pyproj|solutionrelative:AssesmentTwo.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AssesmentTwo.py",
+              "DocumentMoniker": "W:\\AI\\AssesmentTwo\\AssesmentTwo.py",
+              "RelativeDocumentMoniker": "AssesmentTwo.py",
+              "ToolTip": "W:\\AI\\AssesmentTwo\\AssesmentTwo.py",
+              "RelativeToolTip": "AssesmentTwo.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-12-08T23:36:23.612Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
